@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>会计学考试复习站 - 练习版</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">会计学 · 闭卷考试复习</p>
+        <h1>按题型与业务主线复习会计学</h1>
+      </div>
+      <div class="stats" aria-label="知识库统计">
+        <span id="entryCount">0 个场景</span>
+        <span id="variantCount">0 种处理</span>
+      </div>
+    </header>
+
+    <nav class="mode-tabs" aria-label="考试题型板块">
+      <button class="mode-tab active" type="button" data-panel="choicePanel">选择+判断 40分</button>
+      <button class="mode-tab" type="button" data-panel="journalPanel">分录题 50分</button>
+      <button class="mode-tab" type="button" data-panel="calculationPanel">计算分析 10分</button>
+      <button class="mode-tab" type="button" data-panel="practicePanel">科目检索+练习</button>
+    </nav>
+
+    <section id="choicePanel" class="exam-panel active"></section>
+
+    <main id="journalPanel" class="layout exam-panel">
+      <aside class="sidebar" aria-label="筛选器">
+        <section class="panel">
+          <label class="field">
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="科目 / 场景 / 准则 / 费用" />
+          </label>
+
+          <label class="field">
+            <span>章节</span>
+            <select id="chapterFilter"></select>
+          </label>
+
+          <label class="field">
+            <span>业务阶段</span>
+            <select id="stageFilter"></select>
+          </label>
+
+          <label class="field">
+            <span>业务类别</span>
+            <select id="categoryFilter"></select>
+          </label>
+
+          <div class="toggle-row">
+            <label>
+              <input id="mustFilter" type="checkbox" />
+              只看必背
+            </label>
+            <button id="resetButton" type="button">重置</button>
+          </div>
+        </section>
+
+        <section class="panel compact">
+          <h2>复习顺序</h2>
+          <ol id="timeline" class="timeline"></ol>
+        </section>
+      </aside>
+
+      <section class="content">
+        <section class="mainline-card">
+          <strong>分录题主线</strong>
+          <p id="journalMainline">资金筹集 -> 采购与生产 -> 销售与收款 -> 期末账项调整 -> 利润结转与分配 -> 财务报表列报</p>
+        </section>
+        <div class="toolbar">
+          <div>
+            <h2 id="resultTitle">全部场景</h2>
+            <p id="resultHint">按时间顺序排列；同一场景下的不同决策并列展示。</p>
+          </div>
+          <button id="expandAllButton" type="button">全部展开</button>
+        </div>
+
+        <section id="cards" class="cards" aria-live="polite"></section>
+        <section id="journalPptExercises" class="ppt-index"></section>
+        <section id="emptyState" class="empty-state" hidden>
+          <h2>没有匹配结果</h2>
+          <p>换一个关键词，或清空筛选后从章节目录重新定位。</p>
+        </section>
+      </section>
+    </main>
+
+    <section id="calculationPanel" class="exam-panel"></section>
+    <section id="practicePanel" class="exam-panel"></section>
+
+    <script src="./data/accountingEntries.js"></script>
+    <script src="./data/practiceExercises.js"></script>
+    <script src="./data/pptExercises.js"></script>
+    <script src="./data/pptSlideImages.js"></script>
+    <script src="./data/examReview.js"></script>
+    <script src="./data/conceptReview.js"></script>
+    <script src="./data/calculationReview.js"></script>
+    <script src="./data/journalFillPractice.js"></script>
+    <script src="./app.js"></script>
+    <script src="./practiceEnhancements.js"></script>
+  </body>
+</html>
